@@ -1,6 +1,6 @@
 {
   "name": "rise-core-frontend",
-  "version": "1.0.0",
+  "version": "3.1.0-alpha.0",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -20,7 +20,13 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "prepare-lib": "yarn clean && yarn build",
-    "release": "lerna publish --no-git-tag-version --no-push --yes",
+    "version:patch": "npm version patch --no-git-tag-version",
+    "version:minor": "npm version minor --no-git-tag-version",
+    "version:major": "npm version major --no-git-tag-version",
+    "version:prepatch": "npm version prepatch --preid=alpha --no-git-tag-version",
+    "version:preminor": "npm version preminor --preid=alpha --no-git-tag-version",
+    "version:premajor": "npm version premajor --preid=alpha --no-git-tag-version",
+    "release": "yarn install --frozen-lockfile && yarn prepare-lib && lerna publish from-package --ignore-changes --no-push --yes",
     "commit": "cz"
   },
   "config": {
@@ -67,5 +73,6 @@
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.3.3"
-  }
+  },
+  "gitHead": "401eeb2ace279d91d1085cfeb063a47f5f45725f"
 }

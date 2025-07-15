@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
-import { APIObjectType } from '../types'
+import { APIObjectType } from '../endpoints'
 import { IApplicationContext } from '../context'
 import { InvokeOptions } from './types'
 

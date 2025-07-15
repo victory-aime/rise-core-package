@@ -1,4 +1,5 @@
-export * as TYPES from './types'
-export * as UTILS from './utils'
-export * as CONTEXT from './context'
+export *  from './types'
+export *  from './utils'
+export *  from './context'
+export *  from './api'
 export *  from './endpoints'
