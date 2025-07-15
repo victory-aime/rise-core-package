@@ -1,0 +1,80 @@
+{
+  "name": "rise-core-frontend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "private": true,
+  "sideEffects": [
+    "./src/locales/i18n.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepare": "yarn run clean && yarn run build",
+    "version:patch": "yarn version patch",
+    "version:minor": "yarn version minor",
+    "version:major": "yarn version major",
+    "prepublishOnly": "yarn clean && yarn build",
+    "publish:lib": "yarn publish --access public --no-git-tag-version",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.83.0",
+    "axios": "^1.10.0",
+    "browser-image-compression": "^2.0.2",
+    "dayjs": "^1.11.13",
+    "tslib": "^2.8.1",
+    "yup": "^1.6.1",
+    "zustand": "^5.0.6"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/node": "^20",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "lerna": "^8.2.3",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "^5.3.3"
+  },
+  "workspaces": [
+    "src/*"
+  ]
+}
