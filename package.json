@@ -6,10 +6,8 @@
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "type": "module",
-  "private": true,
-  "sideEffects": [
-    "./src/locales/i18n.ts"
-  ],
+  "repository": "https://github.com/victory-aime/rise-core-package",
+  "author": "victory-aime",
   "exports": {
     ".": {
       "import": "./lib/index.esm.js",
@@ -21,12 +19,8 @@
     "clean": "rimraf lib",
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "prepare": "yarn run clean && yarn run build",
-    "version:patch": "yarn version patch",
-    "version:minor": "yarn version minor",
-    "version:major": "yarn version major",
-    "prepublishOnly": "yarn clean && yarn build",
-    "publish:lib": "yarn publish --access public --no-git-tag-version",
+    "prepare-lib": "yarn clean && yarn build",
+    "release": "lerna publish --no-git-tag-version --no-push --yes",
     "commit": "cz"
   },
   "config": {
@@ -73,8 +67,5 @@
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.3.3"
-  },
-  "workspaces": [
-    "src/*"
-  ]
+  }
 }
